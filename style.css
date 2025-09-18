@@ -93,8 +93,8 @@ body {
 .smiley__icon{position:absolute;bottom:180px;left:600px;transform:scale(0);animation:scaleCricle 3s 15s forwards ease-in-out}
 
 /* Box letter (popup) */
-.box__letter{position:fixed;top:0;left:0;background-color:rgba(0,0,0,.5);width:100%;height:100%;z-index:100000;display:none}
-.box__letter .letter__border{position:absolute;width:55vw;height:450px;background-color:var(--color-white);border-radius:27px;padding:17px;box-shadow:rgba(0,0,0,0.24) 0px 3px 8px;top:50%;left:50%;transform:translate(-50%,-50%);display:none}
+.box__letter1{position:fixed;top:0;left:0;background-color:rgba(0,0,0,.5);width:100%;height:100%;z-index:100000;display:none}
+.box__letter1 .letter__border{position:absolute;width:55vw;height:450px;background-color:var(--color-white);border-radius:27px;padding:17px;box-shadow:rgba(0,0,0,0.24) 0px 3px 8px;top:50%;left:50%;transform:translate(-50%,-50%);display:none}
 .letter__border .close{position:absolute;right:-10px;top:-10px;width:30px;height:30px;background-color:var(--color-white);border-radius:50%;display:flex;justify-content:center;align-items:center;box-shadow:rgba(99,99,99,0.2) 0px 2px 8px 0px;cursor:pointer}
 .letter__border .letter{width:100%;height:100%;background-color:var(--color-bg-letter);border-radius:10px;padding-top:15px}
 .letter__border .letter .title__letter{text-align:center;font-family:'Dancing Script',cursive;font-weight:bold;font-size:2.4rem}
@@ -104,7 +104,7 @@ body {
 .content__letter .left #heart__letter{opacity:0;width:100%}
 #heart__letter.animationOp{animation:opacityHeart 1s 1s forwards}
 @keyframes opacityHeart{to{opacity:1}}
-.content__letter .left .heart{position:absolute;opacity:0}
+.content__letter .left .heart{position:absolute;bottom:0;left:0;opacity:0}
 .content__letter .left .heart.animation{animation:scaleHeartLetter 1s var(--t) infinite ease-in-out}
 @keyframes scaleHeartLetter{0%{opacity:1;transform:scale(0)}10%{opacity:1;transform:scale(1.3)}20%{opacity:1;transform:scale(0.7)}30%,100%{opacity:1;transform:scale(1)}}
 .content__letter .left .heart_1{top:90px;left:30px}
@@ -112,9 +112,9 @@ body {
 .content__letter .left .heart_3{bottom:50px;left:145px}
 .content__letter .left .heart_4{top:140px;right:35px}
 .content__letter .right{position:relative;width:50%}
-.content__letter .right .love__img{opacity:0;position:absolute;right:20px;top:-100px}
-.love__img.animationOp{animation:opacityHeart 1s 1s forwards}
-.content__letter .right .text__letter{margin-top:60px;padding:20px 15px 10px 15px;font-family:'Dancing Script',cursive;font-size:1.3rem}
+/*.content__letter .right .love__img{background-image:url("./images/love.png");position:absolute;right:20px;top:8px}
+.love__img.animationOp{animation:opacityHeart 1s 1s forwards}*/
+.content__letter .right .text__letter{margin-top:40px;padding:20px 15px 10px 15px;font-family:'Dancing Script',cursive;font-size:1.3rem}
 .content__letter .right #mewmew{position:absolute;bottom:0;right:0;opacity:0}
 #mewmew.animationOp{animation:opacityHeart 1s 1s forwards}
 
@@ -122,15 +122,18 @@ body {
 #copy a{text-decoration:none;color:#191919d7}
 #copy p{color:#4275ff;text-align:center;font-weight:700;cursor:pointer}
 
-@media screen and (max-width: 658px){
+@media screen and (max-width: 480px){
+    body {
+    font-size: 14px;
+  }
     .flag__birthday .flag__left{transform:rotate(-10deg) translate(-119px,3px)}
     .flag__birthday .flag__right{transform:rotate(10deg) translate(-106px,39px) scaleX(-1)}
-    .content{width:100%;position:relative;display:flex;flex-direction:column;justify-content:center;gap:25px;align-items:center;padding-top:2rem}
+    .content{width:100%;position:relative;display:flex;flex-direction:column;justify-content:center;gap:20px;align-items:center;padding-top:2rem}
     .title{position:relative;width:100%;display:flex;justify-content:center;font-family:"Titan One",sans-serif;font-size:1.5rem;letter-spacing:8px;flex-direction:column;perspective:1000px}
     #btn__letter{position:relative;margin-top:17px;width:209px;background-color:var(--color-text-pink);outline:none;padding:6px 4px;font-size:1rem;border-radius:50px;border:3px solid var(--color-black);font-family:"Sriracha",cursive;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:2;transition:all .5s ease-in-out}
     .cricle{position:absolute;top:10px;right:-54px;display:flex;justify-content:center;align-items:center;transform:scale(0);animation:scaleCricle 3s 15s forwards ease-in-out}
     .title .hat{position:absolute;right:-98px;top:-51px !important;transform:rotate(-40deg);z-index:-1;animation:topHat 4s 7s forwards ease}
-    .box__letter .letter__border{position:absolute;width:90vw;height:315px;background-color:var(--color-white);border-radius:27px;padding:17px;box-shadow:rgba(0,0,0,0.24) 0px 3px 8px;top:50%;left:50%;transform:translate(-50%,-50%);display:none}
+    .box__letter1 .letter__border{position:absolute;width:90vw;height:315px;background-color:var(--color-white);border-radius:27px;padding:17px;box-shadow:rgba(0,0,0,0.24) 0px 3px 8px;top:50%;left:50%;transform:translate(-50%,-50%);display:none}
     .letter__border .letter{width:100%;height:100%;background-color:var(--color-bg-letter);border-radius:10px;padding-top:15px}
     .letter__border .letter .title__letter{text-align:center;font-family:'Dancing Script',cursive;font-weight:bold;font-size:1.4rem}
     .letter__border .letter .content__letter{position:relative;width:100%;height:100%;display:flex;padding-top:.7rem;padding-bottom:70px}
@@ -177,17 +180,17 @@ body {
 
 /* Override old #btn__letter with higher specificity */
 #btn__letter.sweet-btn {
-  margin-top: 20px;
+  margin-top: 15px;
   background: linear-gradient(45deg, #ff9acb, #ffd2a1);
   color: #fff;
   border: 3px solid #ff69b4;
   border-radius: 50px;
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-family: 'Sriracha', cursive;
-  padding: 10px 30px;
+  padding: 8px 20px;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   cursor: pointer;
   box-shadow: 0 0 10px rgba(255, 105, 180, 0.5);
   transition: all 0.3s ease;
@@ -214,9 +217,9 @@ body {
   color: #fff !important;
   border: 3px solid #ff3c7e !important;
   border-radius: 50px !important;
-  font-size: 1.2rem !important;
+  font-size: 1rem !important;
   font-family: 'Sriracha', cursive !important;
-  padding: 12px 35px !important;
+  padding: 10px 25px !important;
   display: flex !important;
   align-items: center !important;
   gap: 10px !important;
@@ -275,26 +278,7 @@ body {
   0% { transform: translateY(0) rotate(-10deg) scale(1); }
   100% { transform: translateY(-20px) rotate(10deg) scale(1.1); }
 }
-
-/* 💖 Cute2 inside Card2 */
-.boxMail .boxMail-container .card2 .imageCute2 {
-  position: absolute;
-  bottom: 15px;
-  left: 20px;
-  opacity: 0;
-  transform: scale(0.6) rotate(-15deg);
-  animation: appearCute2 1s ease-out 2s forwards, glowCute2 2s ease-in-out 3s infinite alternate;
-}
-.boxMail .boxMail-container .card2 .imageCute2 img {
-  width: 80px;
-}
-@keyframes appearCute2 {
-  to { opacity: 1; transform: scale(1) rotate(0deg); }
-}
-@keyframes glowCute2 {
-  from { filter: drop-shadow(0 0 5px #ffb3d9); }
-  to { filter: drop-shadow(0 0 15px #ffd2a1); }
-}
+  
 
 /* 🐾 Mewmew animation inside Letter popup */
 #boxLetter #mewmew {
