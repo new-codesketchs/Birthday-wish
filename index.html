@@ -62,6 +62,31 @@
           </button>
         </div>
 
+        <!-- Memories Button -->
+        <div class="btn">
+          <button id="btn__collage" class="memory-btn">
+            <div class="gallery">
+              Your memories <i class="fa-regular fa-images"></i>
+            </div>
+          </button>
+        </div>
+
+        <!-- Collage Popup -->
+        <div class="boxCollage" id="boxCollage">
+          <i class="fa-solid fa-xmark collage-close"></i>
+          <div class="collage-container">
+            <div class="collage-grid">
+              <img src="images/photo1.jpg" alt="">
+              <img src="images/photo2.jpg" alt="">
+              <img src="images/photo3.jpg" alt="">
+              <img src="images/photo4.jpg" alt="">
+              <img src="images/photo5.jpg" alt="">
+              <img src="images/photo6.jpg" alt="">
+            </div>
+          </div>
+        </div>
+
+
       </div>
 
       <div class="right">
@@ -151,7 +176,7 @@
           <h3>Happy Birthday</h3>
           <div class="imageCute"><img src="cute1.png" alt=""></div>
         </div>
-        
+
       </div>
     </div>
 
@@ -297,6 +322,21 @@
       }
 
     });
+
+
+    // ---------- Collage popup ----------
+    const collageBtn = document.getElementById('btn__collage');
+    const collageBox = document.getElementById('boxCollage');
+    const collageClose = document.querySelector('.collage-close');
+
+    collageBtn.addEventListener('click', () => {
+      collageBox.classList.add('active');
+    });
+
+    collageClose.addEventListener('click', () => {
+      collageBox.classList.remove('active');
+    });
+
 
 
   </script>
