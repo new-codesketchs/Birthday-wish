@@ -16,6 +16,9 @@
 </head>
 
 <body>
+
+  <audio id="bgMusic" src="romantic.aac" loop></audio>
+
   <!-- NOTE: removed autoplay background audio; cake music will play when user clicks the Cut Cake button -->
   <div id="wrapper">
     <div class="flag__birthday">
@@ -196,6 +199,10 @@
     <!-- cake audio -->
     <audio id="cakeMusic" src="happy_birthday.mp3"></audio>
 
+
+    <!--new feature-->
+    <div id="floating-hearts"></div>
+
   </div>
 
 
@@ -204,7 +211,7 @@
     document.addEventListener('DOMContentLoaded', function () {
       // ---------- Typewriter / date animation ----------
       let datetxt = "30th Sept";
-      let datatxtletter = "I hope somewhere we will cross paths again.Thank you so much for the best memories. I wish your days be filled with peace, light, and quiet happiness. Happy birthday to you.💕";
+      let datatxtletter = "You are the best person, I am blessed having you by my side, I know I am not there with u to celebrate this auspicious day but yeah I hope we will celebrate together and every year. Yes I will take care of you love. Enjoy the day... Happy birthday to you.💕";
       let titleLetter = "To you";
 
       let charArrDate = datetxt.split('');
@@ -280,6 +287,17 @@
           }, 40);
         }, 2200);
       });
+// adding new features ---
+    // 🎵 Background music
+    const bgMusic = document.getElementById('bgMusic');
+
+    btnLetter.addEventListener("click", () => {
+      // Play music only on first click
+      if (bgMusic.paused) {
+        bgMusic.play().catch(e => console.log("Autoplay blocked, needs user interaction"));
+      }
+    });
+
 
       // close letter
       closeLetter.addEventListener('click', function () {
@@ -310,10 +328,9 @@
         cakeMusic.play().catch(() => { });
 
         // Auto close after 16 seconds
-        celebrationTimeout = setTimeout(closeCelebration, 16000);
-      });
-
-      celebrationClose.addEventListener('click', closeCelebration);
+        celebrationTimeout = setTimeout(closeCelebration, 20000);
+      } );    
+       celebrationClose.addEventListener('click', closeCelebration);
 
       function closeCelebration() {
         if (celebrationTimeout) clearTimeout(celebrationTimeout);
@@ -337,6 +354,54 @@
       collageBox.classList.remove('active');
     });
 
+    // adding new features ---
+    
+    // 💖 Floating hearts generator
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.innerText = "💖";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.fontSize = (15 + Math.random() * 25) + "px";
+      document.getElementById("floating-hearts").appendChild(heart);
+
+      setTimeout(() => heart.remove(), 8000);
+    }
+
+    // Start spawning hearts every 800ms
+    setInterval(createHeart, 1200);
+    // 💖 Floating elements container
+    const floatingContainer = document.getElementById("floating-hearts");
+    let elementInterval;
+    let currentElement = "💖"; // default hearts
+
+    function createFloatingElement() {
+      const el = document.createElement("div");
+      el.className = "heart";
+      el.innerText = currentElement;
+      el.style.left = Math.random() * 100 + "vw";
+      el.style.fontSize = (15 + Math.random() * 25) + "px";
+      floatingContainer.appendChild(el);
+
+      setTimeout(() => el.remove(), 8000);
+    }
+
+    // Start floating hearts by default
+    function startFloatingHearts() {
+      clearInterval(elementInterval);
+      currentElement = "💖";
+      elementInterval = setInterval(createFloatingElement, 800);
+    }
+
+    // Start floating balloons
+    function startFloatingBalloons() {
+      clearInterval(elementInterval);
+      currentElement = "🎈";
+      elementInterval = setInterval(createFloatingElement, 800);
+    }
+
+    // Begin with hearts
+    startFloatingHearts();
 
 
   </script>
